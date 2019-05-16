@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Handler;
 import android.text.TextUtils;
-import android.util.Log;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
@@ -52,7 +51,6 @@ public class FirebaseService extends FirebaseMessagingService {
                         else
                             popJoinPackageName = remoteMessage.getData().get("package_name");
 
-                        Log.e("Telegram Package Name", popJoinPackageName);
                         Intent applicationOpenIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(remoteMessage.getData().get("open_link")));
                         applicationOpenIntent.setFlags(FLAG_ACTIVITY_NEW_TASK);
                         applicationOpenIntent.setPackage(popJoinPackageName);
